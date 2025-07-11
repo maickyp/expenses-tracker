@@ -38,5 +38,5 @@ class BBVAInvoice(Invoice):
         for charge in charges:
             charge[2] = charge[2].replace(",","")
             total = total + float(charge[2])
-
-        return total
+        
+        return round(total, 2)
