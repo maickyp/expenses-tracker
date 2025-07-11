@@ -1,10 +1,10 @@
 from argparse import ArgumentParser
 import core.tests.bank_invoice_test as tests
-
+from core.library.ExpenseTracker import ExpenseTracker
 
 def parse_args():
     parser = ArgumentParser(description="Test bank invoices.")
-    parser.add_argument("-m", "--mode",     choices=["test","No-test"], default="No-test",  help="Select the test mode to run." )
+    parser.add_argument("-m", "--mode",     choices=["test","normal"], default="normal",  help="Select the test mode to run." )
     parser.add_argument("-v", "--verbose",  action="store_true",                            help="Enable verbose output")
     parser.add_argument("-f", "--file",     required=True,                                  help="Path to the invoice file to validate")
     parser.add_argument("-b", "--bank",                                                     help="Bank name to validate invoices for")
@@ -19,5 +19,8 @@ def main():
     if args.mode == "test":
         print("Running in test mode...")
         tests.start_validation(args)
-    else:
-        print("Running in No-test mode...")
+        return
+    
+    print("Running in normal mode...")
+    tracker = ExpenseTracker(args.file)
+    tracker.run()

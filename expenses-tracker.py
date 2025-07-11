@@ -1,6 +1,5 @@
 import os
 import sys
-from argparse import ArgumentParser
 import main
 
 working_directory = os.path.dirname(os.path.abspath(__file__))

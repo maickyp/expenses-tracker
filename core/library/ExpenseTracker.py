@@ -1,0 +1,15 @@
+import core.library.tools.pdf_utils as PDF
+from core.library.invoices.banks.bbva import BBVAInvoice
+
+class ExpenseTracker(object):
+    def __init__(self, file_path):
+        if not PDF.validate_pdf(file_path):
+            raise ValueError(f"The file at {file_path} is not a valid PDF or file does not exists.")
+        self.file_path = file_path
+
+    def run(self):
+        # Logic to process the expense tracking
+        print(f"Processing expenses from {self.file_path}")
+        invoice = BBVAInvoice(self.file_path)
+        movements = invoice.get_movements()
+        # Add more functionality as needed
