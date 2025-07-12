@@ -1,0 +1,10 @@
+{
+    "spreadsheets": {
+        "tracker":{
+            "source": "google",
+            "file": "<sheet_file_name>",
+            "sheet": "<sheet_name>",
+            "credential-file":"<path_to_credential_file>"
+        }
+    }
+}
