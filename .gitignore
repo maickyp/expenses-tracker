@@ -1,0 +1,5 @@
+*.pyc
+core/settings/*.json
+
+# Temporary file to be ignored
+*.drawio
